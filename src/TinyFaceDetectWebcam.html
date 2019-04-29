@@ -23,7 +23,6 @@
         </div>
         
         <div>Supported by <a href='https://github.com/justadudewhohacks/face-api.js/'>face-api.js <br></a> </div>
-        <div id="countdown"></div>
     </div>
     
     <div id="all" style="float:right" >
@@ -34,8 +33,9 @@
         <div id="buttonfear"> Fear </div>
         <div id="buttonsurprise"> Surprise </div>
         <div id="buttonneutral"> Neutral </div>
+        <div id="some_div"></div>
     </div>
-        
+    
     <style>
         #status {
             font-family: Geneva, Tahoma, Verdana, sans-serif;
@@ -64,7 +64,24 @@
             }   
     </style>
     
-    
+    <script>
+    var timeLeft = 15;
+    var elem = document.getElementById('some_div');
+    var timerId = setInterval(countdown, 1000);
+
+    function countdown() {
+        if (timeLeft == -1) {
+            clearTimeout(timerId);
+            doSomething();
+        } else {
+            elem.innerHTML = timeLeft + ' seconds remaining';
+            timeLeft--;
+        }
+      }
+function doSomething() {
+    alert("Hi");
+}    
+    </script>
     
     <script>
         let sizeType = '200'
@@ -144,7 +161,6 @@
             var status = document.getElementById('status');
             status.innerHTML = "Start Detecting yout Emotion ... ";
         }
-        
         async function loadNetWeights(uri) {
             return new Float32Array(await (await fetch(uri)).arrayBuffer())
         }
@@ -207,7 +223,6 @@
         })
          
     </script>
-    
     <script>
      document.getElementById("buttonhappy").onclick=function () {
      window.open("https://www.youtube.com/watch?v=GZMo6v66gcs")}
