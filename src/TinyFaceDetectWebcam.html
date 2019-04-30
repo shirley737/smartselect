@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="public/styles.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"></script>
+    <script src="html2canvas.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
 </head>
 
@@ -17,13 +18,16 @@
         </h5>
         
         <div style="position: relative" class="margin">
-            <video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
+            <video onplay="onPlay(this)" id="inputVideo" autoplay></video>
             <canvas id="overlay" />
             <canvas id='canvas' />
         </div>
         
         <div>Supported by <a href='https://github.com/justadudewhohacks/face-api.js/'>face-api.js <br></a> </div>
-    </div>
+        <br>
+        <br>
+        <button id="snap">Snap Photo</button>
+        </div>
     
     <div id="all" style="float:right" >
         <div id="buttonhappy"> Happy </div>
@@ -47,10 +51,10 @@
             display: inline-block;
         } 
         
-    #all {
+        #all {
            margin-top: 50px; 
         }
-    #buttonhappy,#buttonsad,#buttonangry,#buttondisgusted,#buttonfear,#buttonsurprise,#buttonneutral{
+        #buttonhappy,#buttonsad,#buttonangry,#buttondisgusted,#buttonfear,#buttonsurprise,#buttonneutral{
           text-align:center;
           min-width: 50px;
           margin: 20px 50px 25px 20px;
@@ -59,29 +63,33 @@
           border-radius: 1em;
           font-family: 'Raleway', sans-serif;
             }       
-    #buttonhappy:hover,#buttonsad:hover,#buttonangry:hover,#buttondisgusted:hover,#buttonfear:hover,#buttonsurprise:hover,#buttonneutral:hover{
+        #buttonhappy:hover,#buttonsad:hover,#buttonangry:hover,#buttondisgusted:hover,#buttonfear:hover,#buttonsurprise:hover,#buttonneutral:hover{
           background-color: #ffe100;
             }   
     </style>
     
+    
     <script>
-    var timeLeft = 15;
+    var timeLeft = 10;
     var elem = document.getElementById('some_div');
-    var timerId = setInterval(countdown, 1000);
+    setTimeout('var timerId = setInterval(countdown, 1000)', 5000);
 
     function countdown() {
         if (timeLeft == -1) {
-            clearTimeout(timerId);
+              timeLeft = 15;  
             doSomething();
         } else {
             elem.innerHTML = timeLeft + ' seconds remaining';
             timeLeft--;
         }
-      }
+      }    
 function doSomething() {
-    alert("Hi");
-}    
+    html2canvas(document.body).then(function(canvas) {
+               document.body.appendChild(canvas);
+            });
+}        
     </script>
+
     
     <script>
         let sizeType = '200'
@@ -118,10 +126,12 @@ function doSomething() {
             const result = await faceapi.detectAllFaces(videoEl, new faceapi.TinyFaceDetectorOptions(forwardParams))
             console.result
 
+            
+            
             if (result.length != 0) {
                 const context = canvas.getContext('2d')
                 context.drawImage(videoEl, 0, 0, width, height)
-
+                
                 let ctx = context;
                 ctx.lineWidth = 4;
                 ctx.font = "25px Arial"
@@ -152,11 +162,21 @@ function doSomething() {
                     ctx.stroke();
                     ctx.fillStyle = emotion_colors[index];
                     ctx.fillText(label, s_x, s_y);
-                    ctx.closePath();                  
+                    ctx.closePath(); 
+                    
+                    function doSomething() {
+                    alert(label);
+                        }   
                 }
 
             }
 
+            
+            document.getElementById("snap").addEventListener("click", function() {
+	            context.drawImage(videoEl, 0, 0, 640, 480);
+                });
+            
+            
             setTimeout(() => onPlay(videoEl))
             var status = document.getElementById('status');
             status.innerHTML = "Start Detecting yout Emotion ... ";
@@ -220,30 +240,31 @@ function doSomething() {
             loadModel('../models/mobilenetv1_models/model.json')
             const sizeTypeSelect = $('#sizeType')
             run()
-        })
-         
+        })    
     </script>
+    
+    
     <script>
      document.getElementById("buttonhappy").onclick=function () {
-     window.open("https://www.youtube.com/watch?v=GZMo6v66gcs")}
+     window.open("https://music.youtube.com/watch?v=q5CUnuE3WRs&list=RDAMVMq5CUnuE3WRs")}
      
      document.getElementById("buttonsad").onclick=function () {
-     window.open("https://www.youtube.com/watch?v=F90ymkS2dt4")}
+     window.open("https://music.youtube.com/watch?v=viQ_CEiARoE&list=RDAMVMviQ_CEiARoE")}
      
      document.getElementById("buttonangry").onclick=function () {
-     window.open("https://www.youtube.com/watch?v=vHVeLBNang8")}
+     window.open("https://music.youtube.com/watch?v=0CY3FRqtwX4&list=RDAMVM0CY3FRqtwX4")}
      
      document.getElementById("buttondisgusted").onclick=function () {
-     window.open("https://www.youtube.com/watch?v=KiCmvQiAC8Q")}
+     window.open("https://music.youtube.com/watch?v=TXGNuJ6wIes&list=RDAMVMTXGNuJ6wIes")}
      
      document.getElementById("buttonsurprise").onclick=function () {
-     window.open("https://www.youtube.com/watch?v=OCOFYFDLWic") }
+     window.open("https://music.youtube.com/watch?v=-RP19fnff_c&list=RDAMVMkxYNseMvCoc") }
      
      document.getElementById("buttonfear").onclick=function () {
-     window.open("https://www.youtube.com/watch?v=f8TkUMJtK5k")}
+     window.open("https://music.youtube.com/watch?v=-WsZ2fUXbZg&list=RDAMVM-WsZ2fUXbZg")}
      
      document.getElementById("buttonneutral").onclick=function () {
-     window.open("https://www.youtube.com/watch?v=alXeI319tws")}
+     window.open("https://music.youtube.com/watch?v=ZlWQG-DK8t8&list=RDAMVMZlWQG-DK8t8")}
     </script>
      
 </body>
