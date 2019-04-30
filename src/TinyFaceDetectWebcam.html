@@ -12,12 +12,12 @@
 </head>
 
 <body>
-    <div class="center-content page-container">
+    <div class="center-content page-container" >
         <h5>
             <span id="status" style="text-align: center">Model Loading ...</span>
         </h5>
         
-        <div style="position: relative" class="margin">
+        <div style="position: relative" id="final">
             <video onplay="onPlay(this)" id="inputVideo" autoplay></video>
             <canvas id="overlay" />
             <canvas id='canvas' />
@@ -41,6 +41,10 @@
     </div>
     
     <style>
+        
+        #margin{
+            
+        }
         #status {
             font-family: Geneva, Tahoma, Verdana, sans-serif;
             text-align: center;
@@ -68,12 +72,10 @@
             }   
     </style>
     
-    
-    <script>
+<script>
     var timeLeft = 10;
     var elem = document.getElementById('some_div');
     setTimeout('var timerId = setInterval(countdown, 1000)', 5000);
-
     function countdown() {
         if (timeLeft == -1) {
               timeLeft = 15;  
@@ -84,7 +86,9 @@
         }
       }    
 function doSomething() {
-    html2canvas(document.body).then(function(canvas) {
+    document.getElementById("final").style.height = "650px";
+    document.getElementById("final").style.width = "850px";
+    html2canvas(document.getElementById("final")).then(function(canvas) {
                document.body.appendChild(canvas);
             });
 }        
