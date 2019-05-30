@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <title>Are you Ready?</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap:400i&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name= "viewport" content="width = device-width, initial-scale=1" />
+    <style type="text/css">
+        
+body{
+background: linear-gradient(rgba(56, 160, 160,.55),rgba(56, 160, 160,.55)), url("music.jpg");
+background-color:#85e2de;
+}
+
+#title{
+font-family: 'Nunito', sans-serif;
+text-align: center;
+margin-top:200px;
+font-size:100px;
+color:#e3f6ff;
+display: none;
+}
+
+#button{
+text-align: center;
+text-decoration: none;
+display: none;
+}
+
+#press{
+margin-top: 50px;
+font-size: 30px;
+text-decoration: none;
+border:none;
+border-top:#38a0a0 3px solid ;
+border-bottom:#38a0a0 3px solid;
+color:#38a0a0;
+background-color: rgba(255, 255, 255, 0.56);
+-webkit-transition-duration: 0.4s; /* Safari */
+padding:10px 20px;
+}
+
+#press:hover{
+border-top:#c7ffff 3px solid ;
+border-bottom:#c7ffff 3px solid;
+background-color:#38a0a0;
+color:#c7ffff;
+        }
+#artist{
+margin-left:75%;  
+margin-top:100px;
+font-size: 25px;
+color:#dfffff;
+font-family: 'Asap', sans-serif;
+display: none;
+}
+
+</style>
+</head>
+        
+<body> 
+<div id="title"> Welcome to Smart Select</div>
+<div id="button"><button id="press" onclick="window.location.href = 'home.html'"> Click to Start!</button> </div>
+<div id="artist"> Shirley Guo <br>
+5/27/2019</div>
+    
+<script>
+    $("#title").fadeIn(1500);
+    $("#button").fadeIn(1500);
+    $("#artist").fadeIn(1500);
+</script>
+    
+</body>    
+    
+</html>

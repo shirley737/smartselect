@@ -1,83 +1,66 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Live Detector</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
     <script src="../dist/face-api.js"></script>
     <link rel="stylesheet" href="public/styles.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"></script>
     <script src="html2canvas.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <div class="center-content page-container" >
+    <div class="center-content" >
         <h5>
             <span id="status" style="text-align: center">Model Loading ...</span>
         </h5>
         
-        <div style="position: relative" id="final">
-            <video onplay="onPlay(this)" id="inputVideo" autoplay></video>
-            <canvas id="overlay" />
-            <canvas id='canvas' />
+        <div style="position: relative" id="final">   
+        <video onplay="onPlay(this)" id="inputVideo" autoplay></video>
+        <canvas id="overlay" />
         </div>
         
-        <div>Supported by <a href='https://github.com/justadudewhohacks/face-api.js/'>face-api.js <br></a> </div>
-        <br>
-        <br>
-        </div>
-    
-    
-        <div id="some_div"></div>
-    
-    
-    <style>
-        #some_div{
-            float:right;
-            margin-top:250px;
-            margin-right: 50px;
-            font-family: Geneva, Tahoma, Verdana, sans-serif;
-            font-size:40px;
-        }
-        
-        #status {
-            font-family: Geneva, Tahoma, Verdana, sans-serif;
-            text-align: center;
-            font-size: 20px;
-        }
+        <div id="footer">Supported by <a href='https://github.com/justadudewhohacks/face-api.js/'>face-api.js </a> 
 
-        .inline {
-            display: inline-block;
-        } 
-        
-        #all {
-           margin-top: 50px; 
-        }
-  
-    </style>
+        </div>
+        </div>
+        <div id="some_div"></div>
+    <div id="exit"> </div>
+    <div > <button id="button" onclick="window.location.href = 'end.html'"> Click Here to Exit </button></div>
     
 <script>
-    var timeLeft = 10;
+    var status = document.getElementById('status');
+    status.innerHTML = "Start Detecting your Emotion ... ";
+    
+    var choose = 0;
+    var timeLeft = 3;
     var elem = document.getElementById('some_div');
     setTimeout('var timerId = setInterval(countdown, 1000)', 5000);
     function countdown() {
-        if (timeLeft == -1) {
-              timeLeft = 30;  
-            doSomething();
+        if (timeLeft == -1) {  
+              doSomething();
+              timeLeft = 15;
+              document.getElementById("status").innerHTML = "Thank you for your data. Have a nice day :)";
+              setTimeout('document.getElementById("exit").innerHTML = "Thanks for letting me steal your data!<br>Scroll down and take a look!"', 5000);
+              setTimeout('document.getElementById("button").style.visibility = "visible"', 5000);
+              choose = 1;
+              back();
         } else {
             elem.innerHTML = timeLeft + ' seconds remaining';
             timeLeft--;
         }
-      }    
+      }
+    
 function doSomething() {
+$("#final").addClass("shrink");
+html2canvas(document.getElementById("overlay")).then(function(canvas) {
+            document.body.appendChild(canvas);}); 
     
-    document.getElementById("final").style.height = "650px";
-    document.getElementById("final").style.width = "850px";
-    html2canvas(document.getElementById("final")).then(function(canvas) {
-               document.body.appendChild(canvas);
-            });
-    
+    if (choose==0){
     if (mood == "happy"){
         window.open("https://music.youtube.com/watch?v=q5CUnuE3WRs&list=RDAMVMq5CUnuE3WRs")
     }
@@ -103,12 +86,15 @@ function doSomething() {
     }
     
     if (mood == "neutral"){
-        window.open("https://music.youtube.com/watch?v=ZlWQG-DK8t8&list=RDAMVMZlWQG-DK8t8")
+        window.open("https://music.youtube.com/watch?v=zY-8UFOy3NA&list=RDQMNAaXzWkv-Kk")
+        }
     }
+}  
     
-}        
-    </script>
-
+function back(){
+$("#final").removeClass("shrink");  
+ }
+</script>
     
     <script>
         let sizeType = '200'
@@ -134,7 +120,7 @@ function doSomething() {
                 return false
 
             const {
-                width, height
+            width, height
             } = faceapi.getMediaDimensions(videoEl)
             const canvas = $('#overlay').get(0)
             canvas.width = width
@@ -192,8 +178,6 @@ function doSomething() {
             }
             
             setTimeout(() => onPlay(videoEl))
-            var status = document.getElementById('status');
-            status.innerHTML = "Start Detecting yout Emotion ... ";
         }
         async function loadNetWeights(uri) {
             return new Float32Array(await (await fetch(uri)).arrayBuffer())
@@ -258,32 +242,5 @@ function doSomething() {
         })    
     </script>
     
-    
-<!--
-<script>
-     document.getElementById("buttonhappy").onclick=function () {
-     window.open("https://music.youtube.com/watch?v=q5CUnuE3WRs&list=RDAMVMq5CUnuE3WRs")}
-     
-     document.getElementById("buttonsad").onclick=function () {
-     window.open("https://music.youtube.com/watch?v=viQ_CEiARoE&list=RDAMVMviQ_CEiARoE")}
-     
-     document.getElementById("buttonangry").onclick=function () {
-     window.open("https://music.youtube.com/watch?v=0CY3FRqtwX4&list=RDAMVM0CY3FRqtwX4")}
-     
-     document.getElementById("buttondisgusted").onclick=function () {
-     window.open("https://music.youtube.com/watch?v=TXGNuJ6wIes&list=RDAMVMTXGNuJ6wIes")}
-     
-     document.getElementById("buttonsurprise").onclick=function () {
-     window.open("https://music.youtube.com/watch?v=-RP19fnff_c&list=RDAMVMkxYNseMvCoc") }
-     
-     document.getElementById("buttonfear").onclick=function () {
-     window.open("https://music.youtube.com/watch?v=-WsZ2fUXbZg&list=RDAMVM-WsZ2fUXbZg")}
-     
-     document.getElementById("buttonneutral").onclick=function () {
-     window.open("https://music.youtube.com/watch?v=ZlWQG-DK8t8&list=RDAMVMZlWQG-DK8t8")}
-</script>
--->
-     
 </body>
-
 </html>

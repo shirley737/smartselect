@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+    <title>Thank you!</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap:400i&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name= "viewport" content="width = device-width, initial-scale=1" />
+    <style type="text/css">
+        
+body{
+background-color:#85e2de;
+}
+
+#title{
+font-family: 'Nunito', sans-serif;
+text-align: center;
+margin-top:100px;
+font-size:100px;
+display: none;
+}
+
+#button{
+text-align: center;
+text-decoration: none;
+}
+
+#press{
+margin-top: 50px;
+font-size: 30px;
+text-decoration: none;
+border:none;
+border-top:#38a0a0 3px solid ;
+border-bottom:#38a0a0 3px solid;
+color:#38a0a0;
+background-color: rgba(255, 255, 255, 0.56);
+-webkit-transition-duration: 0.4s; /* Safari */
+padding:10px 20px;
+display: none;
+}
+
+#press:hover{
+border-top:#c7ffff 3px solid ;
+border-bottom:#c7ffff 3px solid;
+background-color:#38a0a0;
+color:#c7ffff;
+        }
+
+#artist{
+margin-top:30px;
+text-align: center;
+font-size: 20px;
+color:#0a5858;
+font-family: 'Asap', sans-serif;
+display: none;
+}
+        
+#thanks{
+text-align: center;
+font-size: 25px;
+color:#0a5858;
+font-family: 'Asap', sans-serif;
+display: none;
+}
+        
+.contianer {
+    margin:50px 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 230px 230px 230px 230px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+        
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    
+}        
+</style>
+</head>
+        
+<body> 
+    <div id="title"> Thanks for providing your data!</div>
+    <div id="thanks">This is the end of my ICAM senior project, hope you all like it!<br> Special thanks to shlomo dubnov, Amy Alexander and others who helped me during the last 20 weeks.<br> This project could not finish without all your help! <br><br> Now is the time to say good bye.<br> I sincerely hope all seniors have a glorious future, and take a GREAT rest!  </div>
+ <div id="artist"> Shirley Guo <br>
+5/27/2019</div>   
+    
+<div id="button"><button id="press" onclick="window.location.href = 'C:/Users/737sh/Desktop/smartselect/start.html'"> Click to Restart!</button> </div>
+    
+<div class="contianer">
+    <img id="pic1" src="https://www.b2match.com/img/people/onur_blog.jpg">
+    <img id="pic2" src="https://images.theconversation.com/files/129697/original/image-20160707-30713-18qtf3f.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip">
+    <img id="pic3" src="https://s3.envato.com/files/242085646/preview.jpg">
+    <img id="pic4" src="https://media.gq.com/photos/55a6a83f5f1c7af15a1f2c33/16:9/w_1280,c_limit/GettyImages-480788326.jpg">
+    <img id="pic5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRq_mGooBjLNBR4BIGXBo2RDGUcayGlyI-aHqoh5RLLfRtG4te">
+    <img id="pic6" src="http://cdn7.viralscape.com/wp-content/uploads/2014/03/stunning-portrait-44.jpg">
+    <img id="pic7" src="https://t4.ftcdn.net/jpg/00/84/21/49/240_F_84214993_oxdewFIot05jDYec2y8alK3FDu4nGaqu.jpg">
+    <img id="pic8" src="https://www.ucanews.com/uploads/2013/06/1370841406.jpg">
+    <img id="pic9" src="https://media.thetab.com/uploads/2017/12/dimples-smile-portrait-face-person-people-human-600x284.jpg">
+    <img id="pic10" src="https://designlab.ucsd.edu/wp-content/uploads/2016/04/26567492630_fbdccf7161_k.jpg">
+    <img id="pic11" src="https://reflect-refract.weebly.com/uploads/9/5/0/9/95099516/published/download-1_2.jpeg?1497374598">
+    <img id="pic12" src="https://media.licdn.com/dms/image/C4E03AQEzdFXb-uLcWA/profile-displayphoto-shrink_200_200/0?e=1564012800&v=beta&t=TSlD-y9ejC1W2zbUyPb4EeJ0w6ymjqvk1HNzQCMDDQ8">
+    <img id="pic13" src="http://www.trbimg.com/img-57c0c58a/turbine/sdl-sheldon-brown-20160826/450/450x253">
+    <img id="pic14" src="https://d.ucsd.edu/srk/images/scott-2016-bg.jpg">
+    <img id="pic15" src="https://littleindia.com/wp-content/themes/grandnews-child/files/jan2007/pradeep_khosla.jpg">
+     <img id="pic16" src="https://resources.stuff.co.nz/content/dam/images/1/u/u/c/u/y/image.related.StuffLandscapeSixteenByNine.1420x800.1uubct.png/1556232032444.jpg">
+     <img id="pic17" src="http://womenncareer.com/wp-content/uploads/2018/08/respectable-black-women.jpg">
+</div>    
+<script>
+    $("#title").fadeIn(1500);
+    $("#press").fadeIn(500);
+    $("#artist").fadeIn(1500);
+    $("#thanks").fadeIn(1500);
+    $("img").fadeIn(2000);
+</script>    
+
+</body>    
+    
+</html>

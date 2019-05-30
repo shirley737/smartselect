@@ -2,192 +2,20 @@
 <html>
 <head>
     <title>Smart Select</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name= "viewport" content="width = device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
-    <style type="text/css">
-        
-    body {
-        background-image: linear-gradient(to right,rgba(141, 210, 253, 0.85),rgba(215, 240, 247, 0.74));
-        margin: 0;
-        padding: 0;
-        font-family: "Open Sans", "Helvetica Neue", sans-serif;     
-    }
-        
-    #button {
-        width:device-width;
-        margin: 40px 80px;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 1em;
-        font-family: 'Raleway', sans-serif;
-    } 
-        
-    .click {
-        text-align: center;
-        margin: 2px auto 0 auto;
-        background-image: linear-gradient(to right,rgba(255, 166, 239, 0.83), rgb(216, 246, 255));
-        border-style: none;
-        font-size: 18px;
-        display: flex;
-        justify-content: center;
-        border-radius:8px;
-        padding:5px 10px;
-        font-family: serif;
-        color: dimgray;
-        min-width: 80px;
-        font-family: 'Raleway', sans-serif;
-    }
-    
-    #happy,#sad,#angry,#disgust,#fear,#surprise,#neutral{
-        text-align: center;
-        margin: 2px auto 0 auto;
-        background-image: linear-gradient(to right,rgba(248, 194, 238, 0.83), rgba(204, 242, 253, 0.46));
-        border-style: none;
-        font-size: 18px;
-        display: flex;
-        justify-content: center;
-        border-radius:8px;
-        padding:5px 10px;
-        font-family: 'Raleway', sans-serif;
-        color: dimgray;
-        min-width: 110px;
-        transition: transform .2s;
-    }  
-        
-    #happy:hover,#sad:hover,#angry:hover,#disgust:hover,#fear:hover,#surprise:hover,#neutral:hover{
-       transform: scale(1.5); 
-    }
-    
-    #top {
-        text-align: center;
-        margin: 20px auto 0 auto;
-        background-color: rgba(100, 214, 235, 0.73);
-        border-style: none;
-        font-size: 20px;
-        display: flex;
-        justify-content: center;
-        border-radius:8px;
-        padding:5px 10px;
-        font-family: serif;
-        color: #29599b;
-        min-width: 80px;
-        transition: transform .2s;
-        font-family: 'Raleway', sans-serif;
-    }
-      
-    #top:hover{
-         transform: scale(1.8);   
-        }    
-        
-    #intro {
-        width: 800px;
-        margin: 20px auto;
-        text-align: center;
-    }
-        
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-        
-    @media (max-width: 700px) {
-        body {
-            background-color: #fff;
-        }
-        div {
-            width: auto;
-            margin: 0 auto;
-            border-radius: 0;
-            padding: 1em;
-        }
-    }
-   
-    #text{
-        position: absolute;
-        top: 80%;
-        left: 50%;
-        font-size: 50px;
-        color: white;
-        transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-}   
-        
-    #text1{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        float:inherit;
-}           
-    p1{
-        text-align: center; 
-        font-size: 25px;
-       }
-    
-    h1{
-        text-align: center; 
-        font-size: 50px;
-        overflow: hidden; /* Ensures the content is not revealed until the animation */
-        border-right: .15em solid orange; 
-        white-space: nowrap; /* Keeps the content on a single line */
-        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-        padding-top: 30px;
-        letter-spacing: .15em; /* Adjust as needed */
-        animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end 5;    
-        }
-    @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-        }
-
-    @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: orange; }
-}
-    h2{
-        padding:0px 20px 0px 300px;
-        font-size: 20px;  
-        }
-        
-    h3{
-        padding:0px 20px 0px 800px;
-        font-size: 20px;  
-        }    
-        
-    #overlay, #overlayhappy, #overlaysad, #overlayangry, #overlaydisgust, #overlayfear, #overlaysurprise, #overlayneutral{ 
-        position: fixed; /* Sit on top of the page content */
-        display: none; /* Hidden by default */
-        width: 100%; /* Full width (cover the whole page) */
-        height: 100%; /* Full height (cover the whole page) */
-        top: 0; 
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0,0,0,0.5); 
-        z-index: 2; 
-        cursor: pointer; 
-}    
-    </style> 
-    
+    <link rel="stylesheet" type="text/css" href="style.css">.   
 </head>
 
 <body>
-    <h1> Welcome to Smart Select!</h1>
+    <h1> Hi there! How do you feel right now?</h1>
 
-<div id="intro">
-    <p1>Please indicate your mood at this moment, or select live detection! </p1>   
-</div>
-
-<div>
-<button id="top"> Live Detect &nbsp <img src="src/selfie.png" width=20.0px height=20.0px> </button>   
-</div>
-    
-<div id="button">
+<div class="row">
+    <div class="column1">
+    <div id="button">
     <h2>I am...</h2>
     <button id="happy"> Happy &nbsp <img src="src/happy.png" width=20px height=20px> </button>
     <br>
@@ -202,9 +30,7 @@
     <button id="surprise"> Surprise &nbsp <img src="src/Surprise.png" width=20px height=20px></button>
     <br>
     <button id="neutral"> Neutral &nbsp <img src="src/neutral.png" width=20px height=20px></button>
-    <h3>right now...</h3>
-</div>
- 
+        
 <div id="overlay">
   <div id="text1"><img src="src/confusegif.gif" ></div>
   <div id="text">How is your day...</div>
@@ -243,7 +69,16 @@
 <div id="overlayneutral">
   <div id="text1"><img src="src/less.gif"></div>
   <div id="text">Ohh right...let's see..</div>
-</div>        
+</div> 
+</div>
+</div>
+<div class="column2">
+<div id="live">
+<h2>I prefer to use live detection!</h2>
+<button id="top"> Live Detect &nbsp <img src="src/selfie.png" width=25.0px height=25.0px> </button>   
+</div>
+</div>
+</div>
     
 <script>
       document.getElementById("top").onclick = function () {
@@ -290,7 +125,7 @@
     
       document.getElementById("neutral").onclick = function () {
         document.getElementById("overlayneutral").style.display = "block";
-        setTimeout('window.open("https://music.youtube.com/watch?v=_ZcmuKsyvzg&list=RDAMVM_ZcmuKsyvzg")', 5000);
+        setTimeout('window.open("https://music.youtube.com/watch?v=-VeLC061fvE&list=PLYT58VdGbWR81slr_Hb4fXgp30LdPdOO1")', 5000);
         setTimeout('document.getElementById("overlayneutral").style.display = "none"', 5000);
         };
     

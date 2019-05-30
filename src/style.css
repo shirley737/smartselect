@@ -1,0 +1,78 @@
+body{
+   background-color:#aaeaed; 
+   font-family: 'Nunito', sans-serif;
+}
+
+#some_div{
+    float:left;
+    font-family: Geneva, Tahoma, Verdana, sans-serif;
+    margin-left:30px;
+    margin-top:-280px;
+    font-size:40px;
+    }
+#button{
+    position:relative;
+    float:right;
+    visibility: hidden;
+    margin-top:-150px;
+    margin-right:120px;
+    font-size:20px;
+    padding:8px 10px;
+    background-color:aliceblue;
+    border:#38a0a0 3px solid;
+    font-family: 'Nunito', sans-serif;
+}
+
+#button:hover{
+border:#c7ffff 3px solid ;
+background-color:#38a0a0;
+color:#c7ffff;
+        }
+
+#exit{
+    position:relative;
+    float:right;
+    font-family: Geneva, Tahoma, Verdana, sans-serif;
+    margin-right:30px;
+    margin-top:-330px;
+    font-size:20px;
+    text-align: center;
+}
+
+#status {
+    font-family: Geneva, Tahoma, Verdana, sans-serif;
+    text-align: center;
+    font-size: 20px;
+        }
+
+#resize{
+}
+
+#final{
+    
+}
+
+.inline {
+    display: inline-block;
+        } 
+
+#footer{  
+}
+
+#all {
+    margin-top: 50px; 
+    }
+
+.shrink{
+-webkit-transform:scale(0.5);
+-moz-transform:scale(0.5);
+-ms-transform:scale(0.5);
+transform:scale(0.5);
+}  
+
+.back{
+-webkit-transform:scale(2);
+-moz-transform:scale(2);
+-ms-transform:scale(2);
+transform:scale(2);
+} 
